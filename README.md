@@ -1,7 +1,7 @@
 # Aplikasi Pakuan Link
 
-Tugas Mata Kuliah Mobile Programming
-Nama Anggota Kelompok:
+### Tugas Kelompok Mata Kuliah Mobile Programming
+#### Nama Anggota Kelompok:
 1. Muhamad Hafizi (NPM. 065122214)
 2. Aldi Hidayat (NPM. 0651222213)
 3. Syauqi Abyan Hafiz (NPM. 065122217)
