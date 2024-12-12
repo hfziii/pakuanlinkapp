@@ -22,11 +22,20 @@ class NetworkInfo implements NetworkInfoI {
   NetworkInfo._internal(this.connectivity) {
     connectivity = this.connectivity;
   }
-
+  
+  //
+  //
+  //
   @override
   Future<bool> isConnected() async {
     final result = await connectivityResult;
     return !result.contains(connectivityResult.none);
+  }
+
+  //
+  @override
+  Future<List<ConnectivityResult>> get connectivityResult async {
+    return connectivity.checkConnectivity();
   }
 
   @override
