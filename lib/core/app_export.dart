@@ -4,4 +4,4 @@ export 'package:pakuanlinkapp/routes/app_routes.dart';
 export 'package:pakuanlinkapp/theme/app_decoration.dart';
 export 'package:pakuanlinkapp/theme/custom_text_style.dart';
 export 'package:pakuanlinkapp/theme/theme_helper.dart';
-// export 'package:pakuanlinkapp/widgets/';
+export 'package:pakuanlinkapp/widgets/custom_image_view.dart';

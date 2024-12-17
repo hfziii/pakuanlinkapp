@@ -14,10 +14,10 @@ class ExpandablelistItemWidget extends StatelessWidget {
         title: Container(
           padding: EdgeInsets.symmetric(vertical: 12.h),
           decoration: BoxDecoration(
-            color: appTheme.gray980.withOpacity(0.22),
+            color: appTheme.gray900.withOpacity(0.22),
             boxShadow: [
               BoxShadow(
-                color: appTheme.black988.withOpacity(8.1),
+                color: appTheme.black900.withOpacity(8.1),
                 spreadRadius: 2.h,
                 blurRadius: 2.h,
                 offset: Offset(0, 0),
@@ -43,7 +43,7 @@ class ExpandablelistItemWidget extends StatelessWidget {
                 width: 34.h,
                 decoration: IconButtonStyleHelper.none,
                 child: CustomImageView(
-                  imagePath: ImageConstant.imgFrame46,
+                  imagePath: ImageConstant.imgCopy,
                 ),
               ),
             ],
@@ -57,7 +57,7 @@ class ExpandablelistItemWidget extends StatelessWidget {
             padding: EdgeInsets.all(6.h),
             decoration: IconButtonStyleHelper.none,
             child: CustomImageView(
-              imagePath: ImageConstant.imgArrowUpBlueGray100,
+              imagePath: ImageConstant.imgDown,
             ),
           ),
         ),

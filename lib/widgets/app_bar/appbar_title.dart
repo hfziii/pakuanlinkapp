@@ -20,7 +20,7 @@ class AppbarTitle extends StatelessWidget {
         child: Text(
           text,
           style:
-              CustomTextStyle.headlineSmallOnPrimaryContainerExtraBold.copyWith(
+              CustomTextStyles.headlineSmallOnPrimaryContainerExtraBold.copyWith(
             color: theme.colorScheme.onPrimaryContainer,
           ),
         ),

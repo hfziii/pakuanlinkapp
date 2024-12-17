@@ -15,8 +15,8 @@ class ThemeHelper {
   };
 
   //map color schemes
-  Map<String, ColorScheme> _supportedCustomColor = {
-    'lightcode': ColorSchemes.lightCodeColorScheme
+  Map<String, ColorScheme> _supportedColorScheme = {
+    'lightcode': ColorSchemes.lightCodeColorSchme
   };
 
   //changes app theme
@@ -25,14 +25,14 @@ class ThemeHelper {
   }
 
   //returns lightcode color
-  LightCodeColors _getThemeData() {
+  LightCodeColors _getThemeColors() {
     return _supportedCustomColor[_appTheme] ?? LightCodeColors();
   }
 
   //returns current theme data
   ThemeData _getThemeData() {
     var colorScheme =
-        _supportedColorsScheme[_appTheme] ?? ColorSchemes.lightCodeColorScheme;
+        _supportedColorScheme[_appTheme] ?? ColorSchemes.lightCodeColorSchme;
     return ThemeData(
       visualDensity: VisualDensity.standard,
       colorScheme: colorScheme,

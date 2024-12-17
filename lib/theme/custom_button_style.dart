@@ -13,7 +13,7 @@ class CustomButtonStyle {
         padding: EdgeInsets.zero,
       );
   //outline button style
-  static ButtonStyle get ourlineBlueGray => outlinedButton.styleFrom(
+  static ButtonStyle get ourlineBlueGray => OutlinedButton.styleFrom(
         backgroundColor: appTheme.gray900,
         side: BorderSide(
           color: appTheme.blueGray80001,
@@ -26,7 +26,7 @@ class CustomButtonStyle {
       );
   //text button style
   static ButtonStyle get none => ButtonStyle(
-      backgroundColor: WidgetStateProperty.all<color>(Colors.transparent),
+      backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
       elevation: WidgetStateProperty.all<double>(0),
       padding: WidgetStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
       side: WidgetStateProperty.all<BorderSide>(

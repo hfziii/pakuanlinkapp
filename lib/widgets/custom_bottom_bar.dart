@@ -10,11 +10,11 @@ class CustomBottomBar extends StatefulWidget {
   Function(BottomBarEnum)? onChanged;
 
   @override
-  CustomBottomBarState createstate() => CustomBottomBarState();
+  CustomBottomBarState createState() => CustomBottomBarState();
 }
 
 //
-class CustomBottomBarState extends State<CutomBottomBar> {
+class CustomBottomBarState extends State<CustomBottomBar> {
   int selectedIndex = 0;
 
   List<BottomMenuModel> bottomMenuList = [

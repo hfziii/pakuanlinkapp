@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:pakuanlinkapp/main.dart';
 
+//cek koneksi internet
 abstract class NetworkInfoI {
   Future<bool> isConnected();
 
@@ -11,7 +12,7 @@ abstract class NetworkInfoI {
 }
 
 class NetworkInfo implements NetworkInfoI {
-  Connetivity connetivity;
+  Connectivity connectivity;
 
   static final NetworkInfo _networkInfo = NetworkInfo._internal(Connectivity());
 
@@ -22,14 +23,14 @@ class NetworkInfo implements NetworkInfoI {
   NetworkInfo._internal(this.connectivity) {
     connectivity = this.connectivity;
   }
-  
+
   //
   //
   //
   @override
   Future<bool> isConnected() async {
     final result = await connectivityResult;
-    return !result.contains(connectivityResult.none);
+    return !result.contains(ConnectivityResult.none);
   }
 
   //
@@ -39,11 +40,20 @@ class NetworkInfo implements NetworkInfoI {
   }
 
   @override
-  Future<List<connectivityResult>> get onConnectivityChanged =>
+  Stream<List<ConnectivityResult>> get onConnectivityChanged =>
       connectivity.onConnectivityChanged;
+      
+        @override
+        // TODO: implement onConnetivityChanged
+        Stream<List<ConnectivityResult>> get onConnetivityChanged => throw UnimplementedError();
+      
+  // @override
+  // // TODO: implement onConnetivityChanged
+  // Stream<List<ConnectivityResult>> get onConnetivityChanged => 
+  // throw UnimplementedError();
 }
 
-absract class Failure {}
+abstract class Failure {}
 
 //
 class ServerFailure extends Failure {}
@@ -63,15 +73,15 @@ class NoInternetException implements Exception {
   late String _message;
 
   NoInternetException([String message = 'NoInternetExceptin Occurred']) {
-    if (globalMesenggerKey.curentSate != null) {
-      globalMessengerKey.cureentState!
+    if (globalMessengerKey.currentState != null) {
+      globalMessengerKey.currentState!
           .showSnackBar(SnackBar(content: Text(message)));
     }
     this._message = message;
   }
 
   @override
-  String toString(){
+  String toString() {
     return _message;
   }
 }

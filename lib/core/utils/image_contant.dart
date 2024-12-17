@@ -1,4 +1,3 @@
-
 // ignore_for_file: must_be_insutable
 class ImageConstant {
   // Image folder path
@@ -26,4 +25,5 @@ class ImageConstant {
   static String imgUserbig = "$imagePath/ei_user_big.png";
   static String imgEdit = "$imagePath/edit_fill.svg";
   static String imgLogout = "$imagePath/Logout.svg";
+  static String imgEye = '$imagePath/fluent_eye-hide-24-filled.svg';
 }

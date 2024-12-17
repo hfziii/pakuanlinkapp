@@ -17,7 +17,7 @@ class AppRoutes {
 
   static const String homeScreen = '/home_screen';
 
-  static const String homeInitialScreen = '/home_initial_screen';
+  static const String homeInitialPage = '/home_initial_screen';
 
   static const String dashboardScreen = '/dashboard_screen';
 

@@ -18,27 +18,27 @@ extension on TextStyle {
 //
 //
 //
-class CustomTextStyle {
+class CustomTextStyles {
   //body text style
   static TextStyle get bodySmallOnPrimary =>
       theme.textTheme.bodySmall!.copyWith(
-        color: theme.colorScheme.onprimary,
+        color: theme.colorScheme.onPrimary,
       );
-  static TextStyle get hedalineSmallPlusJakartaSansGray600 =>
+  static TextStyle get bodySmallPlusJakartaSansGray600 =>
       theme.textTheme.bodySmall!.plusJakartaSans.copyWith(
         color: appTheme.gray600,
       );
   //Headline
   static TextStyle get headlineSmallOnPrimaryContainer =>
       theme.textTheme.headlineSmall!.copyWith(
-        color: theme.coloScheme.onPrimaryContainer,
-        FontWeight: FontWeight.w800,
+        color: theme.colorScheme.onPrimaryContainer,
+        fontWeight: FontWeight.w800,
       );
   static TextStyle get headlineSmallOnPrimaryContainerExtraBold =>
       theme.textTheme.headlineSmall!.copyWith(
         color: theme.colorScheme.onPrimaryContainer,
         fontSize: 24.fSize,
-        FontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w800,
       );
   //Title
   static get titleMediumInter => theme.textTheme.titleMedium!.inter;
@@ -47,8 +47,8 @@ class CustomTextStyle {
         color: theme.colorScheme.primary,
       );
   static TextStyle get titleMediumInterSemiBold =>
-      theme.textTheme.titleMedium!.intercopyWith(
-        FontWeight: FontWeight.w600,
+      theme.textTheme.titleMedium!.inter.copyWith(
+        fontWeight: FontWeight.w600,
       );
   static TextStyle get titleSmallBold => theme.textTheme.titleSmall!.copyWith(
         fontSize: 15.fSize,

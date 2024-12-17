@@ -5,7 +5,10 @@ import 'home_initial_page.dart';
 
 // ignore_for_file: must_be_immutable
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) 
+  : super(
+      key: key,
+    );
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
@@ -24,14 +27,14 @@ class HomeScreen extends StatelessWidget {
         ),
         bottomNavigationBar: SizedBox(
           width: double.maxFinite,
-          child: buildBottomBar(context),
+          child: _buildBottomBar(context),
         ),
       ),
     );
   }
 
   /// Section Widget
-  Widget _buildBottonBar(BuildContext context) {
+  Widget _buildBottomBar(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
       child: CustomBottomBar(
@@ -50,9 +53,9 @@ class HomeScreen extends StatelessWidget {
     switch (type) {
       case BottomBarEnum.Home:
         return AppRoutes.homeInitialPage;
-      case BottomBarEnum.User:
+      case BottomBarEnum.Dashboard:
         return "/";
-      case BottomBarEnum.Lock:
+      case BottomBarEnum.User:
         return "/";
       default:
         return "/";

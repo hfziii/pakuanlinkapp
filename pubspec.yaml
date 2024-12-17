@@ -15,8 +15,8 @@ dependencies:
   flutter_svg_provider: ^1.0.4
   connectivity_plus: ^6.0.4
   google_fonts: ^4.0.4   
-  equatable:
-  shared_preferences:
+  # equatable:
+  # shared_preferences:
 
 dev_dependencies:
   flutter_test:

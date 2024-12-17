@@ -97,8 +97,8 @@ class HomeInitialPageState extends State<HomeInitialPage> {
     return CustomAppBar(
       title: AppbarTitle(
         text: "PakuanLink",
+        margin: EdgeInsets.only(left: 28.h),
       ),
-      margin: EdgeInsets.only(left: 28.h),
       actions: [
         Container(
           height: 30.h,
@@ -107,12 +107,12 @@ class HomeInitialPageState extends State<HomeInitialPage> {
           child: Stack(
             children: [
               CustomImageView(
-                imagePath: ImageConstant.ingVector,
+                imagePath: ImageConstant.imgUser,
                 height: 30.h,
                 width: 30.h,
               ),
               CustomImageView(
-                imagePath: ImageConstant.ingVectorOnprimary,
+                imagePath: ImageConstant.imgUser,
                 height: 22.h,
                 width: 22.h,
                 margin: EdgeInsets.only(left: 4.h, right: 5.h),
@@ -218,7 +218,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                         width: 34.h,
                         decoration: IconButtonStyleHelper.none,
                         child: CustomImageView(
-                          imagePath: ImageConstant.ingFrame46,
+                          imagePath: ImageConstant.imgCopy,
                         ),
                       ),
                     ),
@@ -230,7 +230,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                         padding: EdgeInsets.all(6.h),
                         decoration: IconButtonStyleHelper.none,
                         child: CustomImageView(
-                          imagePath: ImageConstant.ingArrowUpBlueGray180,
+                          imagePath: ImageConstant.imgUp,
                         ),
                       ),
                     ),
@@ -244,7 +244,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
     );
   }
 
-  Widget buildExpandableList(BuildContext context) {
+  Widget _buildExpandableList(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
       child: ListView.builder(
@@ -290,7 +290,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                     ),
                   ),
                   CustomImageView(
-                    imagePath: ImageConstant.imgFrame48,
+                    imagePath: ImageConstant.imgDown,
                     height: 34.h,
                     width: 36.h,
                     margin: EdgeInsets.only(right: 26.h),
@@ -308,10 +308,10 @@ class HomeInitialPageState extends State<HomeInitialPage> {
     return CustomFloatingButton(
       height: 34,
       width: 34,
-      backgroundColor: theme.colorscheme.onError,
+      backgroundColor: theme.colorScheme.onError,
       alignment: Alignment.bottomRight,
       child: CustomImageView(
-        imagePath: ImageConstant.ingArrowUpBlueGray100,
+        imagePath: ImageConstant.imgUp,
         height: 17.0.h,
         width: 17.0.h,
       ),
