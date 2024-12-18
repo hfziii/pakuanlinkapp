@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
+// ignore: unused_import
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/appbar_trailing_image.dart';
@@ -8,20 +9,13 @@ import '../../widgets/custom_bottom_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_from_filed.dart';
 
-// ignore_for_file: must_be_immutable
 class DahboardScreen extends StatelessWidget {
-  DahboardScreen({Key? key})
-      : super(
-          key: key,
-        );
+  DahboardScreen({Key? key}) : super(key: key);
 
-  TextEditingController abtnsecondaryController = TextEditingController();
+  final TextEditingController abtnsecondaryController = TextEditingController();
+  final TextEditingController abtnsecondary1Controller = TextEditingController();
 
-  TextEditingController abtnsecondary1Controller = TextEditingController();
-
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +52,7 @@ class DahboardScreen extends StatelessWidget {
     );
   }
 
-  //
-   PreferredSizeWidget _buildAppBar(BuildContext context) {
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       title: AppbarTitle(
         text: "PakuanLink",
@@ -76,7 +69,6 @@ class DahboardScreen extends StatelessWidget {
     );
   }
 
-  //
   Widget _buildAddLinkSection(BuildContext context) {
     return Container(
       width: double.maxFinite,
@@ -164,20 +156,14 @@ class DahboardScreen extends StatelessWidget {
     );
   }
 
-  //
   Widget _buildBottomBar(BuildContext context) {
-    return SizedBox(
-      width: double.maxFinite,
-      child: CustomBottomBar(
-        onChanged: (BottomBarEnum type) {
-          Navigator.pushNamed(
-              navigatorKey.currentContext!, getCurrentRoute(type));
-        },
-      ),
+    return CustomBottomBar(
+      onChanged: (BottomBarEnum type) {
+        Navigator.pushNamed(context, getCurrentRoute(type));
+      },
     );
   }
 
-  //
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:

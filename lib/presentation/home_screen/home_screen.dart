@@ -5,12 +5,7 @@ import 'home_initial_page.dart';
 
 // ignore_for_file: must_be_immutable
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) 
-  : super(
-      key: key,
-    );
-
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +13,9 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Navigator(
-          key: navigatorKey,
           initialRoute: AppRoutes.homeInitialPage,
-          onGenerateRoute: (routeSetting) => PageRouteBuilder(
-            pageBuilder: (ctx, ani, ani1) => getCurrentPage(routeSetting.name!),
-            transitionDuration: Duration(seconds: 8),
+          onGenerateRoute: (routeSetting) => MaterialPageRoute(
+            builder: (context) => getCurrentPage(routeSetting.name!),
           ),
         ),
         bottomNavigationBar: SizedBox(
@@ -33,18 +26,15 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  /// Section: Bottom Navigation Bar
   Widget _buildBottomBar(BuildContext context) {
-    return SizedBox(
-      width: double.maxFinite,
-      child: CustomBottomBar(
-        onChanged: (BottomBarEnum type) {
-          Navigator.pushNamed(
-            navigatorKey.currentContext!,
-            getCurrentRoute(type),
-          );
-        },
-      ),
+    return CustomBottomBar(
+      onChanged: (BottomBarEnum type) {
+        Navigator.pushNamed(
+          context,
+          getCurrentRoute(type),
+        );
+      },
     );
   }
 
@@ -62,7 +52,7 @@ class HomeScreen extends StatelessWidget {
     }
   }
 
-  /// Handling page based on route
+  /// Page Handling Based on Route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
       case AppRoutes.homeInitialPage:

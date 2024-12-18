@@ -17,7 +17,7 @@ class ExpandablelistItemWidget extends StatelessWidget {
             color: appTheme.gray900.withOpacity(0.22),
             boxShadow: [
               BoxShadow(
-                color: appTheme.black900.withOpacity(8.1),
+                color: appTheme.black900.withOpacity(0.8),
                 spreadRadius: 2.h,
                 blurRadius: 2.h,
                 offset: Offset(0, 0),
@@ -25,14 +25,14 @@ class ExpandablelistItemWidget extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: EdgeInsets.only(left: 16.h, bottom: 8.h),
                   child: Text(
-                    "Job Fair",
+                    "Webinar",
                     style: theme.textTheme.titleSmall,
                   ),
                 ),
@@ -46,26 +46,35 @@ class ExpandablelistItemWidget extends StatelessWidget {
                   imagePath: ImageConstant.imgCopy,
                 ),
               ),
+              CustomIconButton(
+                height: 34.h,
+                width: 34.h,
+                padding: EdgeInsets.all(6.h),
+                decoration: IconButtonStyleHelper.none,
+                child: CustomImageView(
+                  imagePath: ImageConstant.imgDown,
+                ),
+              ),
             ],
           ),
         ),
-        trailing: Padding(
-          padding: EdgeInsets.only(left: 8.h),
-          child: CustomIconButton(
-            height: 34.h,
-            width: 34.h,
-            padding: EdgeInsets.all(6.h),
-            decoration: IconButtonStyleHelper.none,
-            child: CustomImageView(
-              imagePath: ImageConstant.imgDown,
-            ),
-          ),
-        ),
+        // trailing: Padding(
+        //   padding: EdgeInsets.only(left: 8.h),
+        //   // child: CustomIconButton(
+        //   //   height: 34.h,
+        //   //   width: 34.h,
+        //   //   padding: EdgeInsets.all(6.h),
+        //   //   decoration: IconButtonStyleHelper.none,
+        //   //   child: CustomImageView(
+        //   //     imagePath: ImageConstant.imgDown,
+        //   //   ),
+        //   // ),
+        // ),
         children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 5.h),
             child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere quis orci sit amet consequat.',
+              'https://s.id/MUGP0',
             ),
           ),
         ],

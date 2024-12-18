@@ -14,17 +14,15 @@ class ProfileScreen extends StatelessWidget {
           key: key,
         );
 
+  // Creating unique keys to avoid conflicts with others
   TextEditingController fullNameInputController = TextEditingController();
-
   TextEditingController userNameInputController = TextEditingController();
-
   TextEditingController passwordInputController = TextEditingController();
-
   TextEditingController linkcountInputController = TextEditingController();
 
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  // Unique GlobalKey names
+  // GlobalKey<NavigatorState> profileNavigatorKey = GlobalKey();
+  GlobalKey<FormState> profileFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
       child: Scaffold(
         appBar: _buildAppBar(context),
         body: Form(
-          key: _formKey,
+          key: profileFormKey,
           child: SizedBox(
             width: double.maxFinite,
             child: SingleChildScrollView(
@@ -260,7 +258,7 @@ class ProfileScreen extends StatelessWidget {
       child: CustomBottomBar(
         onChanged: (BottomBarEnum type) {
           Navigator.pushNamed(
-              navigatorKey.currentContext!, getCurrentRoute(type));
+              profileFormKey.currentContext!, getCurrentRoute(type));
         },
       ),
     );

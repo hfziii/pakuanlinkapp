@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+// ignore: unused_import
 import 'package:pakuanlinkapp/main.dart';
 
 //cek koneksi internet
@@ -40,6 +41,7 @@ class NetworkInfo implements NetworkInfoI {
   }
 
   @override
+  // ignore: override_on_non_overriding_member
   Stream<List<ConnectivityResult>> get onConnectivityChanged =>
       connectivity.onConnectivityChanged;
       
@@ -72,7 +74,7 @@ class NetworkException implements Exception {}
 class NoInternetException implements Exception {
   late String _message;
 
-  NoInternetException([String message = 'NoInternetExceptin Occurred']) {
+  NoInternetException(dynamic globalMessengerKey, [String message = 'NoInternetExceptin Occurred']) {
     if (globalMessengerKey.currentState != null) {
       globalMessengerKey.currentState!
           .showSnackBar(SnackBar(content: Text(message)));

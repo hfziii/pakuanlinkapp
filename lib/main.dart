@@ -3,8 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'core/app_export.dart';
 
-var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -12,6 +10,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           theme: theme,
           title: 'pakuanlinkapp',
           debugShowCheckedModeBanner: false,
-          scaffoldMessengerKey: globalMessengerKey, // Tambahkan ini
+          scaffoldMessengerKey: _scaffoldMessengerKey, // Key lokal
           initialRoute: AppRoutes.initialRoute,
           routes: AppRoutes.routes,
           builder: (context, child) {

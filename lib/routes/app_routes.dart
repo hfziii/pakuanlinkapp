@@ -28,13 +28,13 @@ class AppRoutes {
   static const String initialRoute = '/initialRoute';
 
   static Map<String, WidgetBuilder> routes = {
-    // splashscreenScreen: (context) => SplashscreenScreen(),
-    // loginScreen: (context) => LoginScreen(),
-    // registerScreen: (context) => RegisterScreen(),
+    splashscreenScreen: (context) => SplashscreenScreen(),
+    loginScreen: (context) => LoginScreen(),
+    registerScreen: (context) => RegisterScreen(),
     homeScreen: (context) =>  HomeScreen(),
-    // dashboardScreen: (context) => DashboardScreen(),
-    // profileScreen: (context) => ProfileScreen(),
+    dashboardScreen: (context) => DahboardScreen(),
+    profileScreen: (context) => ProfileScreen(),
     appNavigationScreen: (context) => AppNavigationScreen(),
-    // initialRoute: (context) => SplashscreenScreen()
+    initialRoute: (context) => SplashscreenScreen()
   };
 }

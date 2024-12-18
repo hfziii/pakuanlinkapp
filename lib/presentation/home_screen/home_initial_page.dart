@@ -111,12 +111,6 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                 height: 30.h,
                 width: 30.h,
               ),
-              CustomImageView(
-                imagePath: ImageConstant.imgUser,
-                height: 22.h,
-                width: 22.h,
-                margin: EdgeInsets.only(left: 4.h, right: 5.h),
-              ),
             ],
           ),
         ),
@@ -154,7 +148,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
         borderRadius: BorderRadiusStyle.customBorderTL10,
         boxShadow: [
           BoxShadow(
-            color: appTheme.black900.withOpacity(8.1),
+            color: appTheme.black900.withOpacity(0.8),
             spreadRadius: 2.h,
             blurRadius: 2.h,
           ),
@@ -180,7 +174,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
         color: appTheme.gray900.withOpacity(0.22),
         boxShadow: [
           BoxShadow(
-            color: appTheme.black900.withOpacity(8.1),
+            color: appTheme.black900.withOpacity(0.8),
             spreadRadius: 2.h,
             blurRadius: 2.h,
             offset: Offset(4, 4),
@@ -188,8 +182,8 @@ class HomeInitialPageState extends State<HomeInitialPage> {
         ],
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start, // Mengatur posisi di kiri
+        crossAxisAlignment: CrossAxisAlignment.center, // Memastikan gambar sejajar dengan teks
         children: [
           Expanded(
             child: Align(
@@ -211,32 +205,35 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                         style: theme.textTheme.bodyMedium,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.h),
-                      child: CustomIconButton(
-                        height: 34.h,
-                        width: 34.h,
-                        decoration: IconButtonStyleHelper.none,
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgCopy,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.h),
-                      child: CustomIconButton(
-                        height: 34.h,
-                        width: 34.h,
-                        padding: EdgeInsets.all(6.h),
-                        decoration: IconButtonStyleHelper.none,
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgUp,
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),
+            ),
+          ),
+          // Menambahkan gambar di sebelah kanan
+          Padding(
+            padding: EdgeInsets.only(left: 8.h),
+            child: Row(
+              children: [
+                CustomIconButton(
+                  height: 34.h,
+                  width: 34.h,
+                  decoration: IconButtonStyleHelper.none,
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgCopy,
+                  ),
+                ),
+                SizedBox(width: 8.h), // Menambahkan jarak antar ikon
+                CustomIconButton(
+                  height: 34.h,
+                  width: 34.h,
+                  padding: EdgeInsets.all(6.h),
+                  decoration: IconButtonStyleHelper.none,
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgUp,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -264,43 +261,50 @@ class HomeInitialPageState extends State<HomeInitialPage> {
         color: appTheme.gray900.withOpacity(0.22),
         boxShadow: [
           BoxShadow(
-            color: appTheme.black900.withOpacity(8.1),
+            color: appTheme.black900.withOpacity(0.8),
             spreadRadius: 2.h,
             blurRadius: 2.h,
             offset: Offset(0, 0),
           ),
         ],
       ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 18.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: 6.h),
-                      child: Text(
-                        "Job Fair",
-                        style: theme.textTheme.titleSmall,
-                      ),
-                    ),
-                  ),
-                  CustomImageView(
-                    imagePath: ImageConstant.imgDown,
-                    height: 34.h,
-                    width: 36.h,
-                    margin: EdgeInsets.only(right: 26.h),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+      // child: Row(
+      //   children: [
+      //     Expanded(
+      //       child: Container(
+      //         padding: EdgeInsets.symmetric(horizontal: 18.h),
+      //         child: Row(
+      //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //           children: [
+      //             Align(
+      //               alignment: Alignment.bottomCenter,
+      //               child: Padding(
+      //                 padding: EdgeInsets.only(bottom: 6.h),
+      //                 child: Text(
+      //                   "Job Fair",
+      //                   style: theme.textTheme.titleSmall,
+      //                 ),
+      //               ),
+      //             ),
+      //             Row(
+      //               children: [
+      //                 // Menambahkan imgCopy 
+      //                 CustomImageView(
+      //                   imagePath: ImageConstant.imgCopy,
+      //                 ),
+      //                 // Menambahkan imgDown
+      //                 CustomImageView(
+      //                   margin: EdgeInsets.only(left: 8.h),
+      //                   imagePath: ImageConstant.imgDown,
+      //                 ),
+      //               ],
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 

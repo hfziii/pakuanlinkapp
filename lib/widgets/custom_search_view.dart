@@ -116,7 +116,7 @@ class CustomSearchView extends StatelessWidget {
         Container(
           margin: EdgeInsets.fromLTRB(24.h, 14.h, 18.h, 14.h),
           child: CustomImageView(
-            imagePath: ImageConstant.imgBack,
+            imagePath: ImageConstant.imgLink,
             height: 22.h,
             width: 24.h,
           ),
@@ -127,31 +127,38 @@ class CustomSearchView extends StatelessWidget {
         ),
     suffixIcon: suffix ??
         Container(
-          padding: EdgeInsets.fromLTRB(6.h, 8.h, 8.h, 8.h),
-          margin: EdgeInsets.fromLTRB(16.h, 14.h, 18.h, 14.h),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.secondaryContainer.withOpacity(1),
-            borderRadius: BorderRadius.circular(20.h),
-            border: Border.all(
-              color: theme.colorScheme.secondaryContainer.withOpacity(1),
-              width: 1.h,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: theme.colorScheme.secondaryContainer,
-                spreadRadius: 2.h,
-                blurRadius: 2.h,
-                offset: Offset(
-                  10,
-                  9,
-                ),
-              )
-            ],
+          // padding: EdgeInsets.fromLTRB(6.h, 8.h, 8.h, 8.h),
+          // margin: EdgeInsets.fromLTRB(16.h, 14.h, 18.h, 14.h),
+          // decoration: BoxDecoration(
+          //   color: theme.colorScheme.secondaryContainer.withOpacity(1),
+          //   borderRadius: BorderRadius.circular(20.h),
+          //   border: Border.all(
+          //     color: theme.colorScheme.secondaryContainer.withOpacity(1),
+          //     width: 1.h,
+          //   ),
+          //   boxShadow: [
+          //     BoxShadow(
+          //       color: theme.colorScheme.secondaryContainer,
+          //       spreadRadius: 2.h,
+          //       blurRadius: 2.h,
+          //       offset: Offset(
+          //         10,
+          //         9,
+          //       ),
+          //     )
+          //   ],
+          // ),
+          
+          padding: const EdgeInsets.only(
+            top: 15,
+            left: 24,
+            right: 10,
+            bottom: 0,
           ),
           child: CustomImageView(
-            imagePath: ImageConstant.imgAddname,
-            height: 22.h,
-            width: 24.h,
+            imagePath: ImageConstant.imgSearch,
+            height: 40.h,
+            width: 40.h,
           ),
         ),
       suffixIconConstraints: suffixContraints ?? 

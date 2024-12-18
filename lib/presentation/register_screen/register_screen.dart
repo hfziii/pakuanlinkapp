@@ -1,4 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:pakuanlinkapp/presentation/login_screen/login_screen.dart';
+import 'package:pakuanlinkapp/presentation/splashscreen_screen/splashscreen_screen.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
@@ -14,23 +17,21 @@ class RegisterScreen extends StatelessWidget {
         );
 
   TextEditingController fullNameInputController = TextEditingController();
-
   TextEditingController usernameInputController = TextEditingController();
-
   TextEditingController passwordInputController = TextEditingController();
-
   TextEditingController confirmPasswordInputController =
       TextEditingController();
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  // Changed to a unique name for this screen
+  GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: _buildAppbar(context),
+        appBar: _buildAppBar(context),
         body: Form(
-          key: _formKey,
+          key: registerFormKey,
           child: SizedBox(
             width: double.maxFinite,
             child: SingleChildScrollView(
@@ -80,15 +81,18 @@ class RegisterScreen extends StatelessWidget {
                                   style: CustomTextStyles.bodySmallOnPrimary,
                                 ),
                                 TextSpan(
-                                  text: "Login",
-                                  style: theme.textTheme.bodySmall,
-                                ),
-                                TextSpan(
-                                  text: "disini",
+                                  text: "Login disini",
                                   style: theme.textTheme.bodySmall!.copyWith(
                                     decoration: TextDecoration.underline,
                                   ),
-                                )
+                                  recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                                    );
+                                  },
+                                ),
                               ],
                             ),
                             textAlign: TextAlign.left,
@@ -107,17 +111,20 @@ class RegisterScreen extends StatelessWidget {
   }
 
   //appbar
-  PreferredSizeWidget _buildAppbar(BuildContext context) {
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       height: 52.h,
       leadingWidth: 45.h,
       leading: AppbarLeadingImage(
         imagePath: ImageConstant.imgBack,
         margin: EdgeInsets.only(left: 21.h),
-        onTap: () {},
+        onTap: () {
+          Navigator.pop(context); // Kembali ke halaman sebelumnya
+        },
       ),
     );
   }
+  
 
   //full name
   Widget _buildFullNameInput(BuildContext context) {
@@ -269,6 +276,12 @@ class RegisterScreen extends StatelessWidget {
     return CustomElevatedButton(
       text: "DAFTAR".toUpperCase(),
       margin: EdgeInsets.only(right: 8.h),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SplashscreenScreen()),
+        );
+      },
     );
   }
 
