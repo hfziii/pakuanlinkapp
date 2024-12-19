@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pakuanlinkapp/presentation/dashboard_screen/dashboard_screen.dart';
+import 'package:pakuanlinkapp/presentation/profile_screen/profile_screen.dart';
 import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_bar.dart';
 import 'home_initial_page.dart';
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  /// Section: Bottom Navigation Bar
+  //Tombol Navigasi
   Widget _buildBottomBar(BuildContext context) {
     return CustomBottomBar(
       onChanged: (BottomBarEnum type) {
@@ -38,25 +40,27 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  /// Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:
         return AppRoutes.homeInitialPage;
       case BottomBarEnum.Dashboard:
-        return "/";
+        return AppRoutes.dashboardScreen;
       case BottomBarEnum.User:
-        return "/";
+        return AppRoutes.profileScreen;
       default:
         return "/";
     }
   }
 
-  /// Page Handling Based on Route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
       case AppRoutes.homeInitialPage:
         return HomeInitialPage();
+      case AppRoutes.dashboardScreen:
+        return DashboardScreen();
+      case AppRoutes.profileScreen:
+        return ProfileScreen();
       default:
         return DefaultWidget();
     }

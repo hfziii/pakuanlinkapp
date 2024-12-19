@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pakuanlinkapp/presentation/home_screen/home_screen.dart';
+import 'package:pakuanlinkapp/presentation/profile_screen/profile_screen.dart';
 import '../../core/app_export.dart';
 // ignore: unused_import
 import '../../theme/custom_button_style.dart';
@@ -9,8 +11,8 @@ import '../../widgets/custom_bottom_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_from_filed.dart';
 
-class DahboardScreen extends StatelessWidget {
-  DahboardScreen({Key? key}) : super(key: key);
+class DashboardScreen extends StatelessWidget {
+  DashboardScreen({Key? key}) : super(key: key);
 
   final TextEditingController abtnsecondaryController = TextEditingController();
   final TextEditingController abtnsecondary1Controller = TextEditingController();
@@ -31,7 +33,7 @@ class DahboardScreen extends StatelessWidget {
                 width: double.maxFinite,
                 child: Column(
                   children: [
-                    SizedBox(height: 166.h),
+                    SizedBox(height: 20.h),
                     _buildAddLinkSection(context),
                     SizedBox(height: 198.h),
                     SizedBox(
@@ -97,7 +99,7 @@ class DahboardScreen extends StatelessWidget {
                     prefix: Container(
                       margin: EdgeInsets.fromLTRB(24.h, 14.h, 18.h, 14.h),
                       child: CustomImageView(
-                        imagePath: ImageConstant.imgAddtitle,
+                        imagePath: ImageConstant.imgAddname,
                         height: 22.h,
                         width: 24.h,
                         fit: BoxFit.contain,
@@ -120,7 +122,7 @@ class DahboardScreen extends StatelessWidget {
                     hintText: "Masukan Link",
                     hintStyle: theme.textTheme.bodyLarge!,
                     textInputAction: TextInputAction.done,
-                    textInputType: TextInputType.visiblePassword,
+                    textInputType: TextInputType.url, // Ganti menjadi url untuk validasi link
                     prefix: Container(
                       margin: EdgeInsets.fromLTRB(24.h, 14.h, 18.h, 14.h),
                       child: CustomImageView(
@@ -133,13 +135,14 @@ class DahboardScreen extends StatelessWidget {
                     prefixConstraints: BoxConstraints(
                       maxHeight: 54.h,
                     ),
-                    obscureText: true,
+                    obscureText: false, // Pastikan ini diatur ke false
                     contentPadding: EdgeInsets.fromLTRB(24.h, 14.h, 18.h, 14.h),
                     borderDecoration: TextFormFieldStyleHelper.outlineBlueGray,
                     filled: true,
                     fillColor: appTheme.gray900,
                   ),
                 ),
+
                 SizedBox(height: 46.h),
                 CustomElevatedButton(
                   text: "Simpan".toUpperCase(),
@@ -156,6 +159,7 @@ class DahboardScreen extends StatelessWidget {
     );
   }
 
+  //Tombol Navigasi
   Widget _buildBottomBar(BuildContext context) {
     return CustomBottomBar(
       onChanged: (BottomBarEnum type) {
@@ -167,13 +171,26 @@ class DahboardScreen extends StatelessWidget {
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:
-        return AppRoutes.homeInitialPage;
+        return AppRoutes.homeScreen;
       case BottomBarEnum.Dashboard:
-        return "/";
+        return AppRoutes.dashboardScreen; // Rute ke DashboardScreen
       case BottomBarEnum.User:
-        return "/";
+        return AppRoutes.profileScreen; // Rute ke ProfileScreen
       default:
         return "/";
+    }
+  }
+
+  Widget getCurrentPage(String currentRoute) {
+    switch (currentRoute) {
+      case AppRoutes.homeScreen:
+        return HomeScreen();
+      case AppRoutes.dashboardScreen:
+        return DashboardScreen();
+      case AppRoutes.profileScreen:
+        return ProfileScreen();
+      default:
+        return DefaultWidget();
     }
   }
 }

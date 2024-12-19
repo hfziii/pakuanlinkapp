@@ -17,7 +17,16 @@ class HomeInitialPage extends StatefulWidget {
 // ignore_for_file: must_be_immutable
 class HomeInitialPageState extends State<HomeInitialPage> {
   TextEditingController searchController = TextEditingController();
-
+ 
+  // Data untuk widget ExpandableList
+  final List<Map<String, String>> linkData = [
+    {"title": "Webinar", "link": "https://s.id/MUGP0"},
+    {"title": "Kuesioner Monev Unpak", "link": "https://bit.ly/MonevUnpak-Mahasiswa"},
+    {"title": " Coding Camp by DBS", "link": "http://go.dbs.com/dbsfcodingcamp"},
+    {"title": "Panduan Aplikasi Unpak", "link": "https://drive.google.com/drive/folders/1pjKrIeeP9vikCciXFvfX2oFTPp78xI2b"},
+    {"title": "Video Pembelajaran Local Storage", "link": "https://drive.google.com/drive/folders/1kDTEiFB0lLNb9braos5qc22YgLcrMB20?usp=sharing"},
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -62,11 +71,8 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                                       children: [
                                         _buildLinkList(context),
                                         SizedBox(height: 2.h),
-                                        _buildLinkRow(context),
-                                        SizedBox(height: 2.h),
                                         _buildExpandableList(context),
                                         SizedBox(height: 2.h),
-                                        _buildJobFairRow(context),
                                       ],
                                     ),
                                   ),
@@ -78,7 +84,7 @@ class HomeInitialPageState extends State<HomeInitialPage> {
                               ],
                             ),
                           ),
-                          _buildFloatingActionButton(context),
+                          // _buildFloatingActionButton(context),
                         ],
                       ),
                     ),
@@ -167,157 +173,20 @@ class HomeInitialPageState extends State<HomeInitialPage> {
     );
   }
 
-  Widget _buildLinkRow(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 24.h),
-      decoration: BoxDecoration(
-        color: appTheme.gray900.withOpacity(0.22),
-        boxShadow: [
-          BoxShadow(
-            color: appTheme.black900.withOpacity(0.8),
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
-            offset: Offset(4, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start, // Mengatur posisi di kiri
-        crossAxisAlignment: CrossAxisAlignment.center, // Memastikan gambar sejajar dengan teks
-        children: [
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 16.h),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Kuesioner",
-                      style: theme.textTheme.titleSmall,
-                    ),
-                    SizedBox(height: 8.h),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "https://bit.ly/MonevUnpak-Mahasiswa",
-                        style: theme.textTheme.bodyMedium,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          // Menambahkan gambar di sebelah kanan
-          Padding(
-            padding: EdgeInsets.only(left: 8.h),
-            child: Row(
-              children: [
-                CustomIconButton(
-                  height: 34.h,
-                  width: 34.h,
-                  decoration: IconButtonStyleHelper.none,
-                  child: CustomImageView(
-                    imagePath: ImageConstant.imgCopy,
-                  ),
-                ),
-                SizedBox(width: 8.h), // Menambahkan jarak antar ikon
-                CustomIconButton(
-                  height: 34.h,
-                  width: 34.h,
-                  padding: EdgeInsets.all(6.h),
-                  decoration: IconButtonStyleHelper.none,
-                  child: CustomImageView(
-                    imagePath: ImageConstant.imgUp,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildExpandableList(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: 6,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: linkData.length,
         itemBuilder: (context, index) {
-          return ExpandablelistItemWidget();
+          final item = linkData[index];
+          return ExpandablelistItemWidget(
+            title: item["title"]!,
+            link: item["link"]!,
+          );
         },
-      ),
-    );
-  }
-
-  Widget _buildJobFairRow(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 12.h),
-      decoration: BoxDecoration(
-        color: appTheme.gray900.withOpacity(0.22),
-        boxShadow: [
-          BoxShadow(
-            color: appTheme.black900.withOpacity(0.8),
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
-            offset: Offset(0, 0),
-          ),
-        ],
-      ),
-      // child: Row(
-      //   children: [
-      //     Expanded(
-      //       child: Container(
-      //         padding: EdgeInsets.symmetric(horizontal: 18.h),
-      //         child: Row(
-      //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //           children: [
-      //             Align(
-      //               alignment: Alignment.bottomCenter,
-      //               child: Padding(
-      //                 padding: EdgeInsets.only(bottom: 6.h),
-      //                 child: Text(
-      //                   "Job Fair",
-      //                   style: theme.textTheme.titleSmall,
-      //                 ),
-      //               ),
-      //             ),
-      //             Row(
-      //               children: [
-      //                 // Menambahkan imgCopy 
-      //                 CustomImageView(
-      //                   imagePath: ImageConstant.imgCopy,
-      //                 ),
-      //                 // Menambahkan imgDown
-      //                 CustomImageView(
-      //                   margin: EdgeInsets.only(left: 8.h),
-      //                   imagePath: ImageConstant.imgDown,
-      //                 ),
-      //               ],
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
-    );
-  }
-
-  Widget _buildFloatingActionButton(BuildContext context) {
-    return CustomFloatingButton(
-      height: 34,
-      width: 34,
-      backgroundColor: theme.colorScheme.onError,
-      alignment: Alignment.bottomRight,
-      child: CustomImageView(
-        imagePath: ImageConstant.imgUp,
-        height: 17.0.h,
-        width: 17.0.h,
       ),
     );
   }

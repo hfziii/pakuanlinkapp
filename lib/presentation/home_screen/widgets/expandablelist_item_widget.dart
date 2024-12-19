@@ -3,7 +3,14 @@ import '../../../core/app_export.dart';
 import '../../../widgets/custom_icon_button.dart';
 
 class ExpandablelistItemWidget extends StatelessWidget {
-  const ExpandablelistItemWidget({Key? key}) : super(key: key);
+  final String title;
+  final String link;
+
+  const ExpandablelistItemWidget({
+    Key? key,
+    required this.title,
+    required this.link,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +39,7 @@ class ExpandablelistItemWidget extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 16.h, bottom: 8.h),
                   child: Text(
-                    "Webinar",
+                    title,
                     style: theme.textTheme.titleSmall,
                   ),
                 ),
@@ -58,23 +65,26 @@ class ExpandablelistItemWidget extends StatelessWidget {
             ],
           ),
         ),
-        // trailing: Padding(
-        //   padding: EdgeInsets.only(left: 8.h),
-        //   // child: CustomIconButton(
-        //   //   height: 34.h,
-        //   //   width: 34.h,
-        //   //   padding: EdgeInsets.all(6.h),
-        //   //   decoration: IconButtonStyleHelper.none,
-        //   //   child: CustomImageView(
-        //   //     imagePath: ImageConstant.imgDown,
-        //   //   ),
-        //   // ),
-        // ),
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 5.h),
-            child: Text(
-              'https://s.id/MUGP0',
+            padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.h),
+            decoration: BoxDecoration(
+              color: appTheme.gray900.withOpacity(0.22),
+              boxShadow: [
+                BoxShadow(
+                  color: appTheme.black900.withOpacity(0.8),
+                  spreadRadius: 2.h,
+                  blurRadius: 2.h,
+                  offset: Offset(0, 0),
+                ),
+              ],
+            ),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                link,
+                style: theme.textTheme.bodyMedium,
+              ),
             ),
           ),
         ],

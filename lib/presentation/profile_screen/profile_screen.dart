@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pakuanlinkapp/presentation/dashboard_screen/dashboard_screen.dart';
+import 'package:pakuanlinkapp/presentation/home_screen/home_screen.dart';
 import '../../core/app_export.dart';
 import '../../theme/custom_button_style.dart';
 import '../../widgets/app_bar/appbar_title.dart';
@@ -69,7 +71,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         bottomNavigationBar: SizedBox(
           width: double.maxFinite,
-          child: _buildBottomNavigation(context),
+          child: _buildBottomBar(context),
         ),
       ),
     );
@@ -170,7 +172,7 @@ class ProfileScreen extends StatelessWidget {
       padding: EdgeInsets.only(right: 2.h),
       child: CustomTextFormField(
         controller: linkcountInputController,
-        hintText: "28",
+        hintText: "5",
         hintStyle: theme.textTheme.headlineSmall!,
         textInputAction: TextInputAction.done,
         contentPadding: EdgeInsets.fromLTRB(12.h, 12.h, 12.h, 2.h),
@@ -248,33 +250,44 @@ class ProfileScreen extends StatelessWidget {
       ),
       buttonStyle: CustomButtonStyle.ourlineBlueGray,
       buttonTextStyle: CustomTextStyles.titleMediumInterSemiBold,
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
+      },
     );
   }
 
-  //
-  Widget _buildBottomNavigation(BuildContext context) {
-    return SizedBox(
-      width: double.maxFinite,
-      child: CustomBottomBar(
-        onChanged: (BottomBarEnum type) {
-          Navigator.pushNamed(
-              profileFormKey.currentContext!, getCurrentRoute(type));
-        },
-      ),
+  //Tombol Navigasi
+  Widget _buildBottomBar(BuildContext context) {
+    return CustomBottomBar(
+      onChanged: (BottomBarEnum type) {
+        Navigator.pushNamed(context, getCurrentRoute(type));
+      },
     );
   }
 
-  //
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:
-        return AppRoutes.homeInitialPage;
+        return AppRoutes.homeScreen;
       case BottomBarEnum.Dashboard:
-        return "/";
+        return AppRoutes.dashboardScreen; // Rute ke DashboardScreen
       case BottomBarEnum.User:
-        return "/";
+        return AppRoutes.profileScreen; // Rute ke ProfileScreen
       default:
         return "/";
+    }
+  }
+
+  Widget getCurrentPage(String currentRoute) {
+    switch (currentRoute) {
+      case AppRoutes.homeScreen:
+        return HomeScreen();
+      case AppRoutes.dashboardScreen:
+        return DashboardScreen();
+      case AppRoutes.profileScreen:
+        return ProfileScreen();
+      default:
+        return DefaultWidget();
     }
   }
 }

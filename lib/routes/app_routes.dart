@@ -32,7 +32,7 @@ class AppRoutes {
     loginScreen: (context) => LoginScreen(),
     registerScreen: (context) => RegisterScreen(),
     homeScreen: (context) =>  HomeScreen(),
-    dashboardScreen: (context) => DahboardScreen(),
+    dashboardScreen: (context) => DashboardScreen(),
     profileScreen: (context) => ProfileScreen(),
     appNavigationScreen: (context) => AppNavigationScreen(),
     initialRoute: (context) => SplashscreenScreen()
